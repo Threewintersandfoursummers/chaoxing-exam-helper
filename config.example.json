@@ -1,0 +1,59 @@
+{
+  "_怎么用": "只需要填 apiKey。填了哪个就启用哪个，没填的自动跳过，不会报错。",
+  "_当前策略": "DeepSeek 主力（准，一次考试约几分钱）；智谱 GLM-4.7-Flash 永久免费，做第二意见 + DeepSeek 挂了时的兜底。",
+  "_为什么不让两个免费模型一起上": "投票是「票数优先」，两个弱模型 2:1 可以盖过 DeepSeek 的正确答案。所以硅基流动默认关闭。",
+  "_要完全免费": "把 deepseek 的 enabled 改成 false，把 zhipu 的 key 填上即可。准确率会降一点，但零成本。",
+  "_注册地址": "智谱 https://bigmodel.cn  ·  硅基流动 https://cloud.siliconflow.cn  ·  DeepSeek https://platform.deepseek.com",
+  "providers": [
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "baseURL": "https://api.deepseek.com/v1",
+      "model": "deepseek-chat",
+      "apiKey": "",
+      "enabled": true,
+      "weight": 1.5
+    },
+    {
+      "id": "zhipu",
+      "name": "智谱GLM-4.7-Flash",
+      "baseURL": "https://open.bigmodel.cn/api/paas/v4",
+      "model": "glm-4.7-flash",
+      "apiKey": "",
+      "enabled": true,
+      "weight": 0.9
+    },
+    {
+      "id": "siliconflow",
+      "name": "硅基流动Qwen",
+      "baseURL": "https://api.siliconflow.cn/v1",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "apiKey": "",
+      "enabled": false,
+      "weight": 0.8
+    }
+  ],
+  "timeoutMs": 60000,
+  "batchSize": 8,
+  "auto": {
+    "_说明": "thinkDelayMs 是每题点完后的停顿，tapGapMs 是多选时两次点击的间隔，advanceWaitMs 是点完「下一题」后的停顿。数字越小越快，越大会更像人。",
+    "thinkDelayMs": [
+      250,
+      600
+    ],
+    "tapGapMs": [
+      120,
+      260
+    ],
+    "settleRounds": 2,
+    "estimateTap": true,
+    "autoAdvance": true,
+    "scrollAdvance": true,
+    "submit": false,
+    "maxRounds": 400,
+    "advanceWaitMs": [
+      350,
+      650
+    ]
+  }
+}

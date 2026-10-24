@@ -1,0 +1,25 @@
+# ── 密钥与个人配置：绝对不要提交 ──
+config.json
+*.key
+.env
+
+# ── 运行时产物 / 抓到的页面与日志（含题目内容，属个人数据）──
+dump/
+engine.pid
+STOP
+*.log
+*.xml
+
+# ── 截图与临时图 ──
+*.png
+*.jpg
+
+# ── 打包 / 备份产物 ──
+*.tar
+*.zip
+
+# ── 依赖与系统垃圾 ──
+node_modules/
+__pycache__/
+.DS_Store
+Thumbs.db
